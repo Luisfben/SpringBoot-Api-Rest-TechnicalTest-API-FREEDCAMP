@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"></meta>
+<title>List of Projects</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"></link>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<!--  Bootstrap CSS -->
+<link href="../static/css/bootstrap.css" rel="stylesheet"
+	th:href="@{/css/bootstrap.css}"></link>
+</head>
+<body>
+<div class="container">
+		<h3>List of Project Freedcamp</h3>
+
+		<form action="#" th:action="@{/upload}">
+			<input type="text" class="form-control"
+				placeholder="Public api key"
+				aria-label="Public api key"
+				aria-describedby="button-addon2" id="apikeypublic" name="apikeypublic"></input>
+
+			<input type="text" class="form-control"
+				placeholder="Secret api key"
+				aria-label="Secret api key"
+				aria-describedby="button-addon2" id="apikeysecret" name="apikeysecret"></input>
+				
+			<div class="input-group-append">
+				<button class="btn btn-outline-secondary" type="submit">Upload</button>
+			</div>
+		</form>
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col">Id</th>
+				<th scope="col">Name</th>
+				<th scope="col">List task</th>
+				<th scope="col">Task</th>
+				<th scope="col">Company</th>
+				<th scope="col">Market</th>
+				<th scope="col">Service</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="project : ${projects}">
+				<td th:text="${project.idProject}"></td>
+				<td th:text="${project.name}"></td>
+				<td th:text="${project.listTask}"></td>
+				<td th:text="${project.task}"></td>
+				<td th:text="${project.company}"></td>
+				<td th:text="${project.market}"></td>
+				<td th:text="${project.service}"></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+</body>
+</html>
+
+
+
